@@ -43,6 +43,9 @@ jobs:
       - name: Instalar Chromium de Playwright
         run: npx playwright install --with-deps chromium
 
+      - name: Smoke del build de producción
+        run: node scripts/smoke-build.mjs
+
       - name: Pruebas E2E
         run: npm run test:e2e
 

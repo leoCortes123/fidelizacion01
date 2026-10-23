@@ -13,34 +13,9 @@ export default defineConfig({
     port: 5173,
     host: '127.0.0.1',
   },
-  build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id) {
-          if (!id.includes('node_modules')) return undefined;
-          if (
-            id.includes('@supabase') ||
-            id.includes('postgrest') ||
-            id.includes('gotrue') ||
-            id.includes('realtime')
-          ) {
-            return 'supabase';
-          }
-          if (id.includes('@radix-ui')) return 'radix';
-          if (
-            id.includes('/react/') ||
-            id.includes('/react-dom/') ||
-            id.includes('react-router') ||
-            id.includes('scheduler') ||
-            id.includes('@tanstack')
-          ) {
-            return 'react';
-          }
-          return 'vendor';
-        },
-      },
-    },
-  },
+  // No se usa `manualChunks`: separar React, Radix y Supabase en chunks con
+  // dependencias cruzadas rompía el orden de evaluación en producción
+  // ("Cannot access 'y' before initialization"). Rollup calcula el orden.
   test: {
     environment: 'jsdom',
     globals: true,
