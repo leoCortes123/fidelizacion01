@@ -4,8 +4,8 @@
 **Directorio:** `/home/leonardo/Mi_Negocio`
 **Estado:** aplicación funcional conectada a Supabase alojado; pruebas locales en
 verde y smoke test real aprobado.
-**Pendiente para producción:** crear repositorio GitHub, desplegar en Vercel,
-actualizar el dominio en `.env`, Supabase y Google, y probar OAuth con la cuenta real.
+**Pendiente para producción:** desplegar en Vercel, actualizar el dominio en
+`.env`, Supabase y Google, y probar OAuth con la cuenta real.
 
 > **Para una sesión nueva:** leer primero este archivo completo. Resume el estado,
 > las credenciales configuradas (sin exponerlas), los comandos y lo pendiente.
@@ -40,6 +40,7 @@ actualizar el dominio en `.env`, Supabase y Google, y probar OAuth con la cuenta
 
 ### Infraestructura
 
+- Repositorio GitHub: `https://github.com/leoCortes123/fidelizacion01` (rama `main`).
 - `.env` creado con permisos `600` y claves públicas del proyecto alojado
   (gitignored).
 - Proyecto Supabase vinculado: `gxfytcquyobhhbjipbea` (`fidelizacion01`,
