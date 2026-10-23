@@ -4,8 +4,8 @@
 **Directorio:** `/home/leonardo/Mi_Negocio`
 **Estado:** aplicación funcional conectada a Supabase alojado; pruebas locales en
 verde y smoke test real aprobado.
-**Pendiente para producción:** desplegar en Vercel, actualizar el dominio en
-`.env`, Supabase y Google, y probar OAuth con la cuenta real.
+**Pendiente para producción:** probar OAuth con la cuenta real y validar el
+flujo completo (compra, reclamo y canje) en el dominio de Vercel.
 
 > **Para una sesión nueva:** leer primero este archivo completo. Resume el estado,
 > las credenciales configuradas (sin exponerlas), los comandos y lo pendiente.
@@ -41,6 +41,8 @@ verde y smoke test real aprobado.
 ### Infraestructura
 
 - Repositorio GitHub: `https://github.com/leoCortes123/fidelizacion01` (rama `main`).
+- Producción: `https://fidelizacion01.vercel.app` (Vercel, variables de entorno
+  configuradas en Production).
 - `.env` creado con permisos `600` y claves públicas del proyecto alojado
   (gitignored).
 - Proyecto Supabase vinculado: `gxfytcquyobhhbjipbea` (`fidelizacion01`,
@@ -70,7 +72,7 @@ VITE_SUPABASE_URL=https://gxfytcquyobhhbjipbea.supabase.co
 VITE_SUPABASE_ANON_KEY=sb_publishable_…
 VITE_BRAND_NAME=Mi Negocio
 VITE_BRAND_TAGLINE=Puntos por tus compras
-VITE_PUBLIC_APP_URL=          # pendiente: URL de Vercel
+VITE_PUBLIC_APP_URL=          # local; en Vercel: https://fidelizacion01.vercel.app
 ```
 
 ### Supabase
@@ -86,8 +88,9 @@ VITE_PUBLIC_APP_URL=          # pendiente: URL de Vercel
 | Google provider | Habilitado |
 | Confirmación de correo | Desactivada |
 
-**Pendiente al tener Vercel:** añadir `https://<dominio>/**` y
-`https://<dominio>/auth/callback`, cambiar Site URL y el origin de Google Cloud.
+**Vercel:** `https://fidelizacion01.vercel.app` ya está aceptado como redirect
+en Supabase (verificado con `302` hacia Google). Falta confirmar la Site URL y
+probar el OAuth real con la cuenta administradora.
 
 ### Secretos
 
